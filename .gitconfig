@@ -1,0 +1,7 @@
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	prqgh = "!git fetch $1 pull/$2/head:pr-$2 && git checkout pr-$2 && echo"
+	fixup = "!HASH=${1-$(git rev-parse HEAD)} && git commit --fixup=$HASH && EDITOR=: git rebase -i --autosquash $HASH~1 && echo"
+	fap = fetch --all -p
+	default-branch = "!git remote show upstream | awk '/HEAD branch/ {print $NF}'"
+	sync = "!git checkout $(git default-branch) && git pull upstream $(git default-branch) && git push origin $(git default-branch)"
