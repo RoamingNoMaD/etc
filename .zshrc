@@ -77,7 +77,7 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions colored-man-pages)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions colored-man-pages rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,3 +118,9 @@ alias cp="cp -i"                # Confirm before overwriting something
 alias df="df -h"                # Human readable sizes
 alias free="free -m"            # Show sizes in MB
 alias doco="docker compose"
+
+# Rbenv auto completion
+FPATH=~/.rbenv/completions:"$FPATH"
+
+autoload -U compinit
+compinit
